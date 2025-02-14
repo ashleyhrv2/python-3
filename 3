@@ -1,0 +1,99 @@
+import sys
+import os.path
+from os import path
+msg = ["New file name:", "Existing file name:"];
+
+def main():
+    AskInfo();
+
+def AskInfo():
+    checkpoint = "askinfo";
+    whichoption =(input("1 - Create a new file \n"
+                        "2 - Search for an existing file \n"
+                        "3 - Exit program \n"
+                        "select an option by typing 1, 2 or 3: "));
+    CheckInfo(whichoption,checkpoint);
+                           
+def CheckInfo(optionwhich,pointcheck):
+    global whichfilename;
+    match(pointcheck):
+        case 'askinfo':
+            optwhich = ord(optionwhich));
+            if(optwhich <49 or optwhich > 51):
+                 print("Incorrect response. Type 1, 2 or 3");
+                 AskInfo();    
+            else:
+                match(optionwhich):
+                    case "1":
+                        whichfilename = str(input(msg[0]));
+                    case "2":
+                        whichfile = str(input(msg[1]));
+                    case "3":
+                        print("thank you");
+                        sys.exit();
+                   case default :
+                       print("Houston...we have a problem");
+                       sys.exit();    
+                        
+
+                whichfilename = whichfilename + ".doc";
+                Fileconnectivity();
+                
+                 case default :
+                     print("Houston...we have a problem");
+                     sys.exit();
+
+
+def Fileconnectivity():
+    fileDir = os.path.dirname(os.path.realpath("__file__"));
+    fileexist = bool(path.exists(whichfilename));
+
+    if(fileexist==True):
+        print("File exists")
+    else:
+        yesno = str(input)
+        adminfile=open(whichfilename,"x");
+
+    adminfile.close();
+def whattype():
+     checkpoint1 = "askinfo2";
+     whichtype =(input("1 - Create Word file \n"
+                        "2 - Create Notepad file \n"
+                        "3 - Create Excel file \n"
+                        "select which type of file by typing 1, 2 or 3: "));
+     CheckInfo2(whichtype,checkpoint1);
+     
+def CheckInfo2(typewhich,lpointcheck):
+    global whichfilename;
+    match(lpointcheck):
+        case 'askinfo2':
+            typefile = ord(str(typewhich));
+            if(typefile <49 or typefile > 51):
+                 print("Incorrect response. Type 1, 2 or 3");
+                 whattype();    
+            else:
+                if(typefile == 49):
+                    whichfilename = whichfilename + ".doc";
+                    Fileconnectivity();
+                   
+                else:
+                    if (typefile == 51):
+                         whichfilename = whichfilename + ".xlsx";
+                         Fileconnectivity();
+                     
+                    else:
+                        
+                        whichfilename = whichfilename + ".txt";
+                        Fileconnectivity();
+
+
+
+
+
+    
+
+if __name__=="__main__":
+     main();                 
+                    
+ 
+

@@ -51,7 +51,9 @@ def Fileconnectivity():
     if(fileexist==True):
         print("File exists")
     else:
-        yesno = str(input)
+        yesno = str(input("The file name you entered does not exist. Do you want to create it?(Y/N)"));
+        if(yesno.upper()=="y");
+        
         adminfile=open(whichfilename,"x");
 
     adminfile.close();
